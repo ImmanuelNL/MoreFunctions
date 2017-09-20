@@ -13,7 +13,7 @@
 
 
 
-var version = "A1.7.2";
+var version = "A1.7.3";
 var vNickName = "Polar Bear";
 var included = [
 	// NO CATEGORY
@@ -39,7 +39,9 @@ var included = [
 	"webPath",
 	"webIsProtected",
 	// ACTIONS Category
-	"actionRedirect"
+	"actionRedirect",
+	"actionLog",
+	"actionError"
 ];
 
 
@@ -514,5 +516,47 @@ function actionRedirect(url, othersite) {
 	}
 	// REDIRECT
 	window.location.assign(url);
+	}
+}
+/**
+ * Send a message to the console
+ */
+function actionLog(log) {
+	if (!isset(log)) {
+		throw 'Log has not been set!'
+	} else {
+		console.log(log);
+	}
+}
+/**
+ * 
+ * @param err
+ * the error message
+ * What if the err is not set?
+ * --> then the error will be: "Error found! No further information"
+ * @param prefix
+ * do you want "Error:" before you error?
+ * Yes?
+ * --> Your error will be: "Error: " + error
+ * No?
+ * --> Your error will be: error
+ * @returns nothing (ok an error)
+ */
+function actionError(err, prefix) {
+	if (!isset(prefix)) {
+		var prefix = false;
+	} else if (prefix == true) {
+		var prefix = true;
+	} else {
+		var prefix = false;
+	}
+	if (!isset(err)) {
+		throw "Error found! No further information";
+	} else {
+		if(prefix == false) {
+			throw err;
+		} else if (prefix == true) {
+			throw 'Error: ' + err;
+		}
 	}
 }
