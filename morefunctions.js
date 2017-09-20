@@ -13,7 +13,7 @@
 
 
 
-var version = "A1.7.1";
+var version = "A1.7.2";
 var vNickName = "Polar Bear";
 var included = [
 	// NO CATEGORY
@@ -274,7 +274,7 @@ function getMoreFunctions(type) {
 	var i;
 	
 	var defaulttype = 'text';
-	
+	var text;
 	
 	switch (type) {
 	case 'html':
