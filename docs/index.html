@@ -94,6 +94,29 @@ div.card {
 div.container {
     padding: 10px;
 }
+  .example {
+	-moz-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	-webkit-box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	box-shadow:inset 0px 34px 0px -15px #b54b3a;
+	background-color:#a73f2d;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d;
+}
+.example:hover {
+	background-color:#b34332;
+}
+.example:active {
+	position:relative;
+	top:1px;
+}
 </style>
 <style>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -107,11 +130,59 @@ font-family: 'Ubuntu', sans-serif;
 <script type="text/javascript" src="https://immanuelnl.github.io/MoreFunctions/morefunctions.js"></script>
 </head>
 <body>
+  <script>
+   function usingMoreFunctions() {
+
+var str = userLang();
+
+if (str.search('en') != -1) {
+
+var useCM = true;
+
+} else {
+
+var useCM = false;
+
+}
+
+if (useCM == true) {
+
+var inpCM = prompt('How tall are you (in CM)');
+
+} else {
+
+var inpINCH = prompt('How tall are you (in INCH)');
+
+}
+
+if (isset(inpCM)) {
+
+var ans = convert(inpCM, 'cm', 'inch');
+
+var ans2 = convert(inpCM, 'cm', 'm');
+
+alert("You're " + ans + " inch long that's " + ans2 + " meter long");
+
+} else if (isset(inpINCH)) {
+
+var ans = convert(inpINCH, 'inch', 'cm');
+
+var ans2 = convert(inpCM, 'inch', 'm');
+
+alert("You're " + ans + " cm long that's " + ans2 + " meter long");
+
+}
+
+return true;
+}
+  </script>
   <h1 class="title">MoreFunctions</h1><p class="center"> Alpha 1.7.8 (<small>Polar Bear</small>) </p>
   <h2>Use this link</h2>
   <div class="green-box">
 &lt;script src=&quot;https://github.com/ImmanuelNL/MoreFunctions/blob/master/morefunctions.js&quot;&gt;&lt;/script&gt;
   </div>
+  <h3>Let's use them!</h3>
+  <button class="example" onclick="usingMoreFunctions()">Click me to get an example</button>
 <div class="card"><div class="container">isset</div></div><div class="card"><div class="container">squareroot</div></div><div class="card"><div class="container">minmax</div></div><div class="card"><div class="container">tothepower</div></div><div class="card"><div class="container">convert</div></div><div class="card"><div class="container">getMoreFunctions</div></div><div class="card"><div class="container">isArray</div></div><div class="card"><div class="container">startClock</div></div><div class="card"><div class="container">userVersion</div></div><div class="card"><div class="container">userOS</div></div><div class="card"><div class="container">userLang</div></div><div class="card"><div class="container">userJavaOn</div></div><div class="card"><div class="container">userOnline</div></div><div class="card"><div class="container">WebHostName</div></div><div class="card"><div class="container">webUrl</div></div><div class="card"><div class="container">webPath</div></div><div class="card"><div class="container">webIsProtected</div></div><div class="card"><div class="container">actionRedirect</div></div><div class="card"><div class="container">actionLog</div></div><div class="card"><div class="container">actionError</div></div>
  <div class="card">
 <div class="container">
