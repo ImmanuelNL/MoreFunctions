@@ -254,7 +254,7 @@ function convert(count, from, to) {
 		var ok = true;
 	break;
 	case 'inch':
-		var answer = count*39.370;
+		var answer = count*39.37;
 	break;
 	default:
 		throw '"' + to + '" is not valid!';
