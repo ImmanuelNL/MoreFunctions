@@ -538,7 +538,7 @@ function actionRedirect(url, othersite) {
  */
 function actionLog(log) {
 	if (!isset(log)) {
-		throw 'MF: err 15: Log has not been set!'
+		throw 'MF: err 15: Log has not been set!';
 	} else {
 		console.log(log);
 	}
@@ -755,6 +755,7 @@ function delCookie(cookie) {
 	if (!isset(cookie(cookie))) {
 		console.log('MF: NOTICE 3: COOKIE: "' + cookie + '" was not set');
 		throw 'MF: err 20: Cookie not set';
+
 	} else {
 		// (re)setting a cookie to let it expire
 		document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Setting the cookie's expire date to 01/01/1970 00:00:00
@@ -771,6 +772,7 @@ function delCookie(cookie) {
 			if (isset(cookie(cookie))) {
 				return false;
 				throw 'MF: err 21: Something went horribly wrong';
+
 			} else {
 				return true;
 				console.log('MF: NOTICE 4: It took a little bit longer to delete COOKIE: "' + cookie + '"');
