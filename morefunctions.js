@@ -13,7 +13,7 @@
 
 
 
-var version = "A1.7.3";
+var version = "A1.7.5";
 var vNickName = "Polar Bear";
 var included = [
 	// NO CATEGORY
@@ -41,7 +41,9 @@ var included = [
 	// ACTIONS Category
 	"actionRedirect",
 	"actionLog",
-	"actionError"
+	"actionError",
+	"actionScroll",
+	"actionStopHere"
 ];
 
 
@@ -559,4 +561,61 @@ function actionError(err, prefix) {
 			throw 'Error: ' + err;
 		}
 	}
+}
+
+/**
+ * 
+ * @param x
+ * --> scrolling to x
+ * @param y
+ * --> scrolling to y
+ * @returns
+ * --> if the action was completed
+ */
+function actionScroll(x, y) {
+	if (!isset(x)) {
+		throw 'x is not set';
+		return false;
+	} else if (!isset(y)) {
+		throw 'y is not set';
+		return false;
+	} else {
+		window.scrollTo(x, y);
+		return true;
+	}
+}
+/**
+ * WARNING!
+ * WILL STOP EVERYTHING AFTER IT FROM LOADING
+ * EVERYTHING ABOVE THIS FUNCTION WILL BE EXECUTED
+ * examples:
+ * 
+ * # example 1
+ * <script>
+ * alert('Will I be executed?');
+ * actionStopHere();
+ * </script>
+ * ---> Will execute alert('Will I be executed?');
+ * 
+ * # example 2
+ * <script>
+ * actionStopHere();
+ * alert('Will I be executed?');
+ * </script>
+ * ---> Won't execute alert('Will I be executed?');
+ * 
+ * HTML under the actionStopHere() will not be displayed
+ * # example 3
+ * <h1>Hide and seek?<h1>
+ * <script>
+ * actionStopHere();
+ * </script>
+ * <h1>Do you see me?</h1>
+ * ---> User will no see "Do you see me?", But will see "Hide and seek?".
+ * 
+ * @returns
+ * --> nothing
+ */
+function actionStopHere() {
+	window.stop();
 }
