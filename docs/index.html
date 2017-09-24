@@ -131,48 +131,27 @@ font-family: 'Ubuntu', sans-serif;
 </head>
 <body>
   <script>
-   function usingMoreFunctions() {
-
+function usingMoreFunctions() {
 var str = userLang();
-
 if (str.search('en') != -1) {
-
 var useCM = true;
-
 } else {
-
 var useCM = false;
-
 }
-
 if (useCM == true) {
-
 var inpCM = prompt('How tall are you (in CM)');
-
 } else {
-
 var inpINCH = prompt('How tall are you (in INCH)');
-
 }
-
 if (isset(inpCM)) {
-
 var ans = convert(inpCM, 'cm', 'inch');
-
 var ans2 = convert(inpCM, 'cm', 'm');
-
 alert("You're " + ans + " inch long that's " + ans2 + " meter long");
-
 } else if (isset(inpINCH)) {
-
 var ans = convert(inpINCH, 'inch', 'cm');
-
 var ans2 = convert(inpCM, 'inch', 'm');
-
 alert("You're " + ans + " cm long that's " + ans2 + " meter long");
-
 }
-
 return true;
 }
   </script>
