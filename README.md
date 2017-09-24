@@ -65,7 +65,7 @@ tothepower(16, 4);
 // Convert to the opposit (When EN to CM else to INCH)
 function usingMoreFunctions() {
 var str = userLang();
-var b = str.search(/w3schools/i);
+var b = str.search(/en/i);
 if (b == -1) {
 var useCM = true;
 } else {
