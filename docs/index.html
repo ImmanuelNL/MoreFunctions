@@ -133,7 +133,8 @@ font-family: 'Ubuntu', sans-serif;
   <script>
 function usingMoreFunctions() {
 var str = userLang();
-if (str.search('en') != -1) {
+var b = str.search(/w3schools/i);
+if (b == -1) {
 var useCM = true;
 } else {
 var useCM = false;
