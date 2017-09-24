@@ -13,7 +13,7 @@
 
 
 
-var version = "A1.7.8";
+var version = "A1.7.9";
 var vNickName = "Polar Bear";
 var included = [
 	// NO CATEGORY
@@ -254,7 +254,8 @@ function convert(count, from, to) {
 		var ok = true;
 	break;
 	case 'inch':
-		var answer = count*39.37;
+		var answer = count * 0.3937;
+		var ok = true;
 	break;
 	default:
 		throw '"' + to + '" is not valid!';
