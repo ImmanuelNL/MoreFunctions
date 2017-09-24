@@ -4,7 +4,7 @@ Make it easier and faster to code using MoreFunctions!
 ### How to use
 Add this line in the Head section (before the `</head>`-tag and after the `<head>`-tag)
 
-`<script type="text/javascript" src="https://immanuelnl.github.io/MoreFunctions/morefunctions.js"></script>`
+`<script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/A1.9.0/morefunctions.js"></script>`
 ## Our goal
 Our goal is to create a plugin that supports *JavaScript* and *PHP*.
 We do this by
@@ -49,49 +49,31 @@ We do this by
 
  *Let's use it!*
 
-`function usingMoreFunctions() {`
-
-`var str = userLang();`
-
-`if (str.search('en') == -1) {`
-
-`var useCM = true;`
-
-`} else {`
-
-`var useCM = false;`
-
-`}`
-
-`if (useCM == true) {`
-
-`var inpCM = prompt('How tall are you (in CM)');`
-
-`} else {`
-
-`var inpINCH = prompt('How tall are you (in INCH)');`
-
-`}`
-
-`if (isset(inpCM)) {`
-
-`var ans = convert(inpCM, 'cm', 'inch');`
-
-`var ans2 = convert(inpCM, 'cm', 'm');`
-
-`alert("You're " + ans + " inch long that's " + ans2 + " meter long");`
-
-`} else if (isset(inpINCH)) {`
-
-`var ans = convert(inpINCH, 'inch', 'cm');`
-
-`var ans2 = convert(inpCM, 'inch', 'm');`
-
-`alert("You're " + ans + " cm long that's " + ans2 + " meter long");`
-
-`}`
-
-`return true;`
-
-`}`
+```
+function usingMoreFunctions() {
+var str = userLang();
+var b = str.search(/w3schools/i);
+if (b == -1) {
+var useCM = true;
+} else {
+var useCM = false;
+}
+if (useCM == true) {
+var inpCM = prompt('How tall are you (in CM)');
+} else {
+var inpINCH = prompt('How tall are you (in INCH)');
+}
+if (isset(inpCM)) {
+var ans = convert(inpCM, 'cm', 'inch');
+var ans2 = convert(inpCM, 'cm', 'm');
+alert("You're " + ans + " inch long that's " + ans2 + " meter");
+} else if (isset(inpINCH)) {
+var ans = convert(inpINCH, 'inch', 'cm');
+var ans2 = convert(inpCM, 'inch', 'm');
+alert("You're " + ans + " cm long that's " + ans2 + " meter");
+}
+alert('The following functions where used \n\n\tuserLang \n\t\tWhy? \n\t\t\tTo see which measurement system you use\n\tisset \n\t\tWhy? \n\t\t\tTo see what was set\n\tconvert \n\t\tWhy? \n\t\t\tTo convert inch to centimeter (or centimeter to inch) and inch/centimeter to meter\n');
+return true;
+}
+```
 
