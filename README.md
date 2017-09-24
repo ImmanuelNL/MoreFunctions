@@ -77,7 +77,11 @@ We do this by
 
 `var ans = convert(inpCM, 'cm', 'inch');`
 
+`var ans = ans.replace(".", ","); // replacing '.' with ','`
+
 `var ans2 = convert(inpCM, 'cm', 'm');`
+
+`var ans2 = ans2.replace(".", ","); // replacing '.' with ','`
 
 `alert("You're " + ans + " inch long that's " + ans2 + " meter long");`
 
