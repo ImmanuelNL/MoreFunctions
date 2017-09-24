@@ -1,10 +1,12 @@
 # MoreFunctions
 Make it easier and faster to code using MoreFunctions!
 
-### How to use
+## How to use
 Add this line in the Head section (before the `</head>`-tag and after the `<head>`-tag)
-
-`<script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/A1.9.0/morefunctions.js"></script>`
+### Version Alpha 1.9.0
+```html
+<script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/A1.9.0/morefunctions.js"></script>
+```
 ## Our goal
 Our goal is to create a plugin that supports *JavaScript* and *PHP*.
 We do this by
@@ -14,12 +16,16 @@ We do this by
  
  *Instead of*
  
- `var get = document.getElementById('myInput');
- document.getElementById('myOutput').innerHTML = get.innerHTML;`
+ ```javascript
+ var get = document.getElementById('myInput');
+ document.getElementById('myOutput').innerHTML = get.innerHTML;
+ ```
  
  *You do*
  
- `getContent('myInput', 'myOuput');`
+ ```javascript
+ getContent('myInput', 'myOuput');
+ ```
  
  2) Making it easier to do get information or to convert it
  
@@ -27,7 +33,9 @@ We do this by
  
  *What is the user's language*
  
- `userLang()`
+ ```javascript
+ userLang();
+ ```
  
  *Could be*
  
@@ -39,17 +47,21 @@ We do this by
 
 *What is 16^4?*
 
-`tothepower(16, 4);`
+```javascript
+tothepower(16, 4);
+```
 
 *Answer*
 
-`65536`
+```javascript
+65536
+```
 
 4) Everything together
 
  *Let's use it!*
 
-```
+```javascript
 // Convert to the opposit (When EN to CM else to INCH)
 function usingMoreFunctions() {
 var str = userLang();
@@ -77,4 +89,5 @@ alert('The following functions where used \n\n\tuserLang \n\t\tWhy? \n\t\t\tTo s
 return true;
 }
 ```
+> Keep coding :page_with_curl:
 
