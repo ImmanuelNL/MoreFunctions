@@ -50,6 +50,7 @@ We do this by
  *Let's use it!*
 
 ```
+// Convert to the opposit (When EN to CM else to INCH)
 function usingMoreFunctions() {
 var str = userLang();
 var b = str.search(/w3schools/i);
