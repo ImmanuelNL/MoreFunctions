@@ -13,7 +13,7 @@
 
 
 
-var version = "A1.7.5";
+var version = "A1.7.8";
 var vNickName = "Polar Bear";
 var included = [
 	// NO CATEGORY
@@ -43,7 +43,11 @@ var included = [
 	"actionLog",
 	"actionError",
 	"actionScroll",
-	"actionStopHere"
+	"actionStopHere",
+	// GET Category
+	"getContent",
+	"getMFstyles",
+	"getTitle"
 ];
 
 
@@ -616,6 +620,53 @@ function actionScroll(x, y) {
  * @returns
  * --> nothing
  */
+
 function actionStopHere() {
 	window.stop();
+}
+
+/**
+ * 
+ * @param id
+ * The id of the element you want information from
+ * --> returns false if not set ( @code and an error )
+ * @param output
+ * The id of the output element
+ * --> when not set the content of ID ( @code 'get' ) will be returned
+ * @returns
+ * --> returns false if @code id is not set
+ * --> returns @code get (content of ID) if output is not set
+ */
+function getContent(id, output) {
+	if (!isset(id)) {
+		throw 'Error: ID not called';
+		return false;
+	}
+	var get = document.getElementById(id);
+	if (isset(output)) {
+		document.getElementById(output).innerHTML = get.innerHTML;	
+	} else {
+		return get;
+	}
+}
+
+/**
+ * 
+ * @returns
+ * --> true, because of success
+ */
+function getMFstyles() {
+	    var x = document.createElement("STYLE");
+	    var t = document.createTextNode("div.card {  width: 250px;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  text-align: center;}div.container {    padding: 10px;}/* Style The Dropdown Button */.dropbtn {    background-color: #4CAF50;    color: white;    padding: 16px;    font-size: 16px;    border: none;    cursor: pointer;}/* The container <div> - needed to position the dropdown content */.dropdown {    position: relative;    display: inline-block;}/* Dropdown Content (Hidden by Default) */.dropdown-content {    display: none;    position: absolute;    background-color: #f9f9f9;    min-width: 160px;    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);    z-index: 1;}/* Links inside the dropdown */.dropdown-content a {    color: black;    padding: 12px 16px;    text-decoration: none;    display: block;}/* Change color of dropdown links on hover */.dropdown-content a:hover {background-color: #f1f1f1}/* Show the dropdown menu on hover */.dropdown:hover .dropdown-content {    display: block;}/* Change the background color of the dropdown button when the dropdown content is shown */.dropdown:hover .dropbtn {    background-color: #3e8e41;}p.center {text-align: center; }p.left {text-align: left; }p.right {text-align: right; }h1.title {text-align: center;font-size: 48px;}body {font-size: 13px;}div.green-box {border: 3px solid green;}div.red-box {border: 3px solid red; }div.darkred-box {border: 3px solid DarkRed;}div.orange-box {border: 3px solid orange;}div.card {  width: 250px;  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  text-align: center;}div.container {    padding: 10px;}");
+	    x.appendChild(t);
+	    document.head.appendChild(x);
+	    return true;
+}
+
+/**
+ * 
+ * @returns the title (<title>TITLE</title>)
+ */
+function getTitle() {
+	return document.title;
 }
