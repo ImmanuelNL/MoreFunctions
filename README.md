@@ -53,7 +53,7 @@ We do this by
 
 `var str = userLang();`
 
-`if (str.search('en') != -1) {`
+`if (str.search('en') == -1) {`
 
 `var useCM = true;`
 
