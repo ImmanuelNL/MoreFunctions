@@ -13,7 +13,7 @@
 
 
 
-var version = "A1.7.9";
+var version = "A1.8.0";
 var vNickName = "Polar Bear";
 var included = [
 	// NO CATEGORY
@@ -47,7 +47,11 @@ var included = [
 	// GET Category
 	"getContent",
 	"getMFstyles",
-	"getTitle"
+	"getTitle",
+	// COOKIE category
+	"setCookie",
+	"getCookie",
+	"cookie"
 ];
 
 
@@ -254,7 +258,7 @@ function convert(count, from, to) {
 		var ok = true;
 	break;
 	case 'inch':
-		var answer = count * 0.3937;
+		var answer = count * 0.393700787;
 		var ok = true;
 	break;
 	default:
@@ -670,4 +674,69 @@ function getMFstyles() {
  */
 function getTitle() {
 	return document.title;
+}
+
+/**
+ * Credits to W3schools (w3schools.com)
+ * 
+ * @param cname
+ * --> The name of the cookie
+ * @param cvalue
+ * --> The value of the cookie
+ * @param exdays
+ * --> Days before expires
+ * --> Can be set permanent by setting exdays to 'permanent or perm'
+ * @returns
+ */
+function setCookie(cname, cvalue, exdays) {
+	if (exdays == 'permanent' || exdays == 'PERMANENT' || exdays == 'perm' || exdays == 'PERM' || !isset(exdays)) {
+		var exdays = 10 * 365.25; 
+	}
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+/**
+ * Credits to W3schools (w3schools.com)
+ * 
+ * @param cname
+ * --> the name of the cookie
+ * @returns
+ * --> cookie content
+ */
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+/**
+ * 
+ * @param cookie 
+ * --> Cals a cookie
+ * @returns
+ * --> 'undefined' when the cookie doesn't exist ( so now it can be used with @function isset() )
+ * --> @code theCookie, the content of the cookie
+ */
+function cookie(cookie) {
+	var theCookie = getCookie(cookie);
+	if (!theCookie != "") {
+		// so it can be used with isset
+		return 'undefined';
+	} else {
+		return theCookie;
+	} 
 }
