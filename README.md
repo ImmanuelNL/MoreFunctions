@@ -47,7 +47,7 @@ We do this by
 
 4) Everything together
 
- *Let's make everything work with eachother*
+ *Let's use it!*
 
 `function usingMoreFunctions() {`
 
