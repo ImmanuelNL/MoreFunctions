@@ -13,8 +13,10 @@
 
 
 
-var version = "A1.8.0";
+var version = "A1.9.0";
 var vNickName = "Polar Bear";
+var errorCount = "21";
+var noticeCount = "4";
 var included = [
 	// NO CATEGORY
 	"isset",
@@ -51,9 +53,9 @@ var included = [
 	// COOKIE category
 	"setCookie",
 	"getCookie",
-	"cookie"
+	"cookie",
+	"delCookie"
 ];
-
 
 
 
@@ -96,7 +98,7 @@ function isset(object) {
 
 function squareroot(num) {
 	if (!isset(num)) {
-		throw 'No number found';
+		throw 'MF: err 1: No number found';
 	}
 	var answer = Math.sqrt(num);
 	return answer;
@@ -111,10 +113,10 @@ function squareroot(num) {
 
 function minmax(min, max) {
 	if (!isset(min)) {
-		throw 'No minimal amount found';
+		throw 'MF: err 2: No minimal amount found';
 	}
 	if (!isset(max)) {
-		throw 'No maximum amount found';
+		throw 'MF: err 3: No maximum amount found';
 	}
 	Math.floor((Math.random() * max) + min);
 }
@@ -131,18 +133,20 @@ function minmax(min, max) {
 function tothepower(num, power) {
 	
 	if (!isset(num)) {
-		throw 'no number found';
+		throw 'MF: err 4: no number found';
 	}
 	if (!isset(num)) {
-		throw 'no power found';
+		throw 'MF: err 5: no power found';
 	}
 	
 	// math rules
 	if (power == 0) {
 		return false;
+		throw 'MF: err 6: math error (can\'t do ' + num + '^' + power + ' )';
 	}
 	if (num == 0) {
 		return false;
+		throw 'MF: err 7: math error (can\'t do ' + num + '^' + power + ' )';
 	}
 	
 	var savenum1 = num;
@@ -177,13 +181,13 @@ function tothepower(num, power) {
 
 function convert(count, from, to) {
 	if(!isset(count)) {
-		throw 'count (amount) has not been set';
+		throw 'MF: err 8: count (amount) has not been set';
 	}
 	if(!isset(from)) {
-		throw 'from has not been set';
+		throw 'MF: err 9: from has not been set';
 	}
 	if(!isset(to)) {
-		throw 'to has not been set';
+		throw 'MF: err 10: to has not been set';
 	}
 	// mm, cm, dm, m, dam, hm, km, inch
 	var ok = false;
@@ -222,7 +226,7 @@ function convert(count, from, to) {
 		var ok = true;
 	break;
 	default:
-		throw '"' + from + '" is not valid!';
+		throw 'MF: err 11: "' + from + '" is not valid!';
 		var ok = false;
 	break;
 	}
@@ -262,7 +266,7 @@ function convert(count, from, to) {
 		var ok = true;
 	break;
 	default:
-		throw '"' + to + '" is not valid!';
+		throw 'MF: err 12: "' + to + '" is not valid!';
 		var ok = false;
 	break;
 	}
@@ -385,7 +389,7 @@ function isArray(array) {
 			return false;
 		}
 	} else {
-		throw 'Array is not set';
+		throw 'MF: err 13: Array is not set';
 	}
 }
 
@@ -504,14 +508,14 @@ function webIsProtected() {
 function actionRedirect(url, othersite) {
 	// IS THE URL SET
 	if(!isset(url)) {
-		throw 'URL has not been set';
+		throw 'MF: err 14: URL has not been set';
 	} else {
 	// CATCH MISTAKES in the URL
 	function catchmistakes(url) {
 			if (!isset(othersite)) {
 			if (url.search("www.") !== -1) {
 				var othersite = true;
-				throw 'www. was detected in "' + url + '", added http:// in front of the URL';
+				console.log('MF: NOTICE 1: www. was detected in "' + url + '", added http:// in front of the URL');
 			} else {
 				var othersite = false;
 			}
@@ -522,7 +526,7 @@ function actionRedirect(url, othersite) {
 		// check if hasn't http(s)
 		if(url.search("http") == -1)  {
 			var url = 'http://' + url;
-			console.log('"' + url + '" changed to http://' + url);
+			console.log('NOTICE 2: "' + url + '" changed to http://' + url);
 		}	
 	}
 	// REDIRECT
@@ -534,7 +538,7 @@ function actionRedirect(url, othersite) {
  */
 function actionLog(log) {
 	if (!isset(log)) {
-		throw 'Log has not been set!'
+		throw 'MF: err 15: Log has not been set!'
 	} else {
 		console.log(log);
 	}
@@ -562,12 +566,12 @@ function actionError(err, prefix) {
 		var prefix = false;
 	}
 	if (!isset(err)) {
-		throw "Error found! No further information";
+		throw "MF: err 16: Error found! No further information";
 	} else {
 		if(prefix == false) {
 			throw err;
 		} else if (prefix == true) {
-			throw 'Error: ' + err;
+			throw 'MF: Error: ' + err;
 		}
 	}
 }
@@ -583,10 +587,10 @@ function actionError(err, prefix) {
  */
 function actionScroll(x, y) {
 	if (!isset(x)) {
-		throw 'x is not set';
+		throw 'MF: err 17: x is not set';
 		return false;
 	} else if (!isset(y)) {
-		throw 'y is not set';
+		throw 'MF: err 18: y is not set';
 		return false;
 	} else {
 		window.scrollTo(x, y);
@@ -644,7 +648,7 @@ function actionStopHere() {
  */
 function getContent(id, output) {
 	if (!isset(id)) {
-		throw 'Error: ID not called';
+		throw 'MF: err 19: Error: ID not called';
 		return false;
 	}
 	var get = document.getElementById(id);
@@ -677,7 +681,6 @@ function getTitle() {
 }
 
 /**
- * Credits to W3schools (w3schools.com)
  * 
  * @param cname
  * --> The name of the cookie
@@ -693,14 +696,12 @@ function setCookie(cname, cvalue, exdays) {
 		var exdays = 10 * 365.25; 
 	}
     var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    d.setTime(d.getTime() + (exdays*24*60*60*1000)); // from miliseconds to days (24 * 60 * 60 * 1000)
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-/**
- * Credits to W3schools (w3schools.com)
- * 
+/** 
  * @param cname
  * --> the name of the cookie
  * @returns
@@ -739,4 +740,42 @@ function cookie(cookie) {
 	} else {
 		return theCookie;
 	} 
+}
+
+/**
+ * 
+ * @param cookie
+ * --> which cookie has to be deleted?
+ * @returns
+ * --> true if cookie has been deleted
+ * --> returns false and an error after 3 times retrying
+ */
+
+function delCookie(cookie) {
+	if (!isset(cookie(cookie))) {
+		console.log('MF: NOTICE 3: COOKIE: "' + cookie + '" was not set');
+		throw 'MF: err 20: Cookie not set';
+	} else {
+		// (re)setting a cookie to let it expire
+		document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Setting the cookie's expire date to 01/01/1970 00:00:00
+	
+			// if the cookie isn't set anymore
+		if (!isset(cookie(cookie))) {
+			return true;
+		} else {
+			// retry 3 times
+			while (x > 3 && isset(cookie(cookie))) {
+				x++;
+				document.cookie = cookie + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Setting the cookie's expire date to 01/01/1970 00:00:00
+			}
+			if (isset(cookie(cookie))) {
+				return false;
+				throw 'MF: err 21: Something went horribly wrong';
+			} else {
+				return true;
+				console.log('MF: NOTICE 4: It took a little bit longer to delete COOKIE: "' + cookie + '"');
+			}
+	
+		}
+	}
 }
