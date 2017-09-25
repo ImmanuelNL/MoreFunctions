@@ -8,15 +8,17 @@
  * 
  * Version Polar Bear
  * 
- * Still In Alpha Stages
+ * Version 1.0.0
+ * MoreFunctions official release!
+ * 25/09/2017
  */
 
 
 
-var version = "A1.9.0";
-var vNickName = "Polar Bear";
-var errorCount = "21";
-var noticeCount = "4";
+var version = "1.0.0";
+var vNickName = "Amur Tiger";
+var errorCount = "25";
+var noticeCount = "5";
 var included = [
 	// NO CATEGORY
 	"isset",
@@ -50,11 +52,14 @@ var included = [
 	"getContent",
 	"getMFstyles",
 	"getTitle",
-	// COOKIE category
+	// COOKIE Category
 	"setCookie",
 	"getCookie",
 	"cookie",
-	"delCookie"
+	"delCookie",
+	// WRITE Category
+	"write",
+	"writeTo"
 ];
 
 
@@ -778,6 +783,78 @@ function delCookie(cookie) {
 				console.log('MF: NOTICE 4: It took a little bit longer to delete COOKIE: "' + cookie + '"');
 			}
 	
+		}
+	}
+}
+
+/**
+ * Used to write (html) to a page
+ * @param text
+ * --> What has to be written?
+ * @returns
+ * --> Log's to the console
+ * --> writes to user "MF: NOTICE 5: text was not set"
+ * --> returns false
+ */
+function write(text) {
+	if (!isset(text)) {
+		document.writeln('MF: NOTICE: text was not set!');
+		console.log('MF: NOTICE 5: Nothing was written.')
+		throw 'MF: err 22: text was not set! So nothing was written.';
+		return false;
+	} else {
+		document.writeln(text);
+		return true;
+	}	
+}
+
+/**
+ * 
+ * @param text
+ * --> is going to replace the current content of @param id
+ * @param id
+ * --> what is the id of the element whose content has to be changed to @param text
+ * @returns
+ * --> true when content was changed
+ * --> false when content was NOT changed
+ * @code
+ * --> when action fails the first time MF will retry to change @param id for 3 times more
+ * 	 --> Success?
+ * 		--> @returns true
+ * 	 --> Failure
+ * 		--> @returns false and an error 
+ */
+
+function writeTo(text, id) {
+	// Check if everything is set
+	if (!isset(text)) {
+		throw 'MF: err 23: text was not set';
+		return false;
+	} else if (!isset(id)) {
+		throw 'MF: err 24: id was not set';
+	} else {
+		document.getElementById(id).innerHTML = text;
+		// Is @code id realy @code text?
+		if (document.getElementById(id).value == text) {
+			// Yes?
+			return true
+		} else {
+			// No?
+			var x;
+			while (document.getElementById(id).value != text && x > 3) {
+				// retry 3 times
+				$x++;
+				document.getElementById(id).innerHTML = text;
+			}
+			// Is @code id realy @code text?
+			if (document.getElementById(id).value == text) {
+				// Yes?
+				return true;
+			} else {
+				// No? (error 25)
+				return false;
+				throw 'MF: err 25: Something went wrong, while changing (element\'s ID) "' + id + '"\'s content to "' + text + '"';
+			}
 		}
 	}
 }
