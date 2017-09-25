@@ -3,7 +3,13 @@ Make it easier and faster to code using MoreFunctions!
 
 ## How to use
 Add this line in the Head section (before the `</head>`-tag and after the `<head>`-tag)
-### Version Alpha 1.9.0
+
+### Release 1.0.0 (Amur Tiger)
+```html
+<script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/R1/morefunctions.js"></script>
+```
+
+### Alpha stages (Polar Bear)
 ```html
 <script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/A1.9.0/morefunctions.js"></script>
 ```
