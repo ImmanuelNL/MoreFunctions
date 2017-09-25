@@ -127,6 +127,7 @@ div.container {
 @import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,hebrew,latin-ext,vietnamese');
 body {
 font-family: 'Ubuntu', sans-serif;
+background: #ddd url('https://github.com/ImmanuelNL/MoreFunctions/raw/master/docs/Amur-Tiger.jpg') no-repeat right top fixed;
 }
 </style>
 <!-- MoreFunctions -->
@@ -160,10 +161,19 @@ alert('The following functions where used \n\n\tuserLang \n\t\tWhy? \n\t\t\tTo s
 return true;
 }
   </script>
-  <h1 class="title">MoreFunctions</h1><p class="center"> Alpha 1.9.0 (<small>Polar Bear</small>) </p>
-  <h2>Use this link</h2>
+  <h1 class="title">MoreFunctions</h1><p class="center"> Version 1.0.0 (<small>Amur Tiger</small>) </p>
   <div class="green-box">
-&lt;script src=&quot;https://github.com/ImmanuelNL/MoreFunctions/releases/download/A1.9.0/morefunctions.js&quot;&gt;&lt;/script&gt;
+    <h1>Use this link (<small>For on your webpage</small>)</h1>
+&lt;script src=&quot;<mark>Link comming soon</mark>&quot;&gt;&lt;/script&gt;
+  </div>
+  <div class="darkred-box">
+  <h1>Or use this (<small>For in your console</small>)</h1>
+  <pre>
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '<mark>Link comming soon</mark>';
+document.head.appendChild(script);
+</pre>
   </div>
   <h3>Let's use them!</h3>
   <button class="example" onclick="usingMoreFunctions()">Click me to get an example</button>
@@ -207,7 +217,15 @@ cookie</div>
 <div class="container">
 delCookie
 </div>
-</div>   
+<div class="card">
+<div class="container">
+write
+</div>
+</div>
+<div class="card">
+<div class="container">
+writeTo
+</div> 
  </body>
 </body>
 </html>
