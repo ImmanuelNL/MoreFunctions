@@ -94,7 +94,7 @@ var ans = convert(inpINCH, 'inch', 'cm');
 var ans2 = convert(inpCM, 'inch', 'm');
 alert("You're " + ans + " cm long that's " + ans2 + " meter");
 }
-alert('The following functions where used \n\n\tuserLang \n\t\tWhy? \n\t\t\tTo see which measurement system you use\n\tisset \n\t\tWhy? \n\t\t\tTo see what was set\n\tconvert \n\t\tWhy? \n\t\t\tTo convert inch to centimeter (or centimeter to inch) and inch/centimeter to meter\n');
+alert('The following functions where used \n\n\tuserLang \n\t\tWhy? \n\t\t\tTo see which measurement system you use\n\tisset \n\t\tWhy? \n\t\t\tTo see what was set\n\tconvert \n\t\tWhy? \n\t\t\tTo convert inch to centimeter (or centimetre to inch) and inch/centimetre to meter\n');
 return true;
 }
 ```
