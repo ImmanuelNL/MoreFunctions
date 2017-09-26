@@ -1,15 +1,16 @@
-# MoreFunctions
+# MoreFunctions # 
 Make it easier and faster to code using MoreFunctions!
 
 ## How to use
 Add this line in the Head section (before the `</head>`-tag and after the `<head>`-tag)
 
 ### Release 1.0.0 (Amur Tiger)
+![Amur Tiger]( https://github.com/ImmanuelNL/MoreFunctions/raw/master/docs/Amur-Tiger.jpg "Amur Tiger R1.0.0")
 ```html
 <script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/R1/morefunctions.js"></script>
 ```
-
 ### Alpha stages (Polar Bear)
+![Polar Bear]( https://github.com/ImmanuelNL/MoreFunctions/raw/master/docs/Polar-Bear.jpg "Polar Bear latest alpha")
 ```html
 <script type="text/javascript" src="https://github.com/ImmanuelNL/MoreFunctions/releases/download/A1.9.0/morefunctions.js"></script>
 ```
@@ -19,7 +20,8 @@ We do this by
  1) Shortening already existing functions
  
  ***Example 1***
- 
+
+ ____________________
  *Instead of*
  
  ```javascript
@@ -36,7 +38,7 @@ We do this by
  2) Making it easier to do get information or to convert it
  
  ***Example 2***
- 
+ ____________________
  *What is the user's language*
  
  ```javascript
@@ -50,6 +52,7 @@ We do this by
 3) Math solving
 
 ***Example 3***
+______________________
 
 *What is 16^4?*
 
@@ -64,7 +67,7 @@ tothepower(16, 4);
 ```
 
 4) Everything together
-
+______________________
  *Let's use it!*
 
 ```javascript
