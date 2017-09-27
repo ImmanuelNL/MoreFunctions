@@ -12,13 +12,24 @@
  */
 
 
+var autoload = true;
 
-var version = "1.0.1";
+if (autoload == true) {
+	var auto = autoload();
+	if (auto == true) {
+		console.log('Added Custom ALERT');
+	} else {
+		throw 'MF: err.: (counter not set yet.. (But I assume 0)) SOMETHING WENT ALREADY WRONG';
+	}
+} else {
+	console.log('Did not added custom ALERT');
+}
+var version = "1.0.2";
 var isAlpha = false
 	var sinceNoMoreAlpha = '25/09/2017';
 var isBeta = true
 var vNickName = "Amur Tiger";
-var errorCount = "26";
+var errorCount = "26"; // (+ 1 not counting)
 var noticeCount = "5";
 var included = [
 	// NO CATEGORY
@@ -60,7 +71,9 @@ var included = [
 	"delCookie",
 	// WRITE Category
 	"write",
-	"writeTo"
+	"writeTo",
+	"autoload", // DO NOT USE! When you don't know how to use
+	"addMFalert" // New alerts!
 ];
 
 
@@ -894,4 +907,37 @@ function writeTo(text, id, doSet) {
             }
         }
 	}
+}
+
+/**
+ * Start the MF autoload
+ * 
+ * @returns
+ * --> true if no errors occured
+ */
+function autoload() {
+	var x = document.createElement("DIV");
+	var t = document.createTextNode('<link href="https://fonts.googleapis.com/css?family=Asap+Condensed|Encode+Sans+Expanded|Lato|Open+Sans|PT+Sans+Caption|Roboto|Roboto+Condensed|Ubuntu|Ubuntu+Condensed|Ubuntu+Mono" rel="stylesheet">');
+	var tt = document.createTextNode("<!--      @import url('https://fonts.googleapis.com/css?family=Asap+Condensed|Encode+Sans+Expanded|Lato|Open+Sans|PT+Sans+Caption|Roboto|Roboto+Condensed|Ubuntu|Ubuntu+Condensed|Ubuntu+Mono');       font-family: 'Roboto', sans-serif;     font-family: 'Encode Sans Expanded', sans-serif;     font-family: 'Open Sans', sans-serif;     font-family: 'Asap Condensed', sans-serif;     font-family: 'Lato', sans-serif;     font-family: 'Roboto Condensed', sans-serif;     font-family: 'PT Sans Caption', sans-serif;     font-family: 'Ubuntu Mono', monospace;     font-family: 'Ubuntu Condensed', sans-serif;     font-family: 'Ubuntu', sans-serif;       -->");
+	var newBodyStyle = document.createTextNode("<style>body { font-family: 'Ubuntu', sans-serif; }</style>");
+    x.appendChild(t);
+    x.appendChild(tt);
+    x.appendChild(newBodyStyle);
+    document.head.appendChild(x);
+    return true;
+}
+
+
+/**
+ * Do you want the new MF alert system? It looks beautiful
+ * @returns
+ */
+function addMFalert() {
+	var x = document.createElement("DIV");
+	var newAlert = document.createTextNode("<style> #alertBox {     position: fixed;     top:100px;     visibility: hidden;     font-family: 'Ubuntu', sans-serif;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    text-align: center;    background-color: #4CAF50;     color: white;     padding: 10px;     font-size: 40px; } #alertClose {  font-size: 20px;     position: absolute;     right:0;     top: 0;     color: black;     width: 1em;     text-align: center;      cursor: pointer;     font-family: 'Roboto', sans-serif; } </style>");
+	var newAlertScript = document.createTextNode('<script> function closeAlertBox(){     alertBox = document.getElementById("alertBox");     alertClose = document.getElementById("alertClose");     alertBox.style.visibility = "hidden";     alertClose.style.visibility = "hidden"; } window.alert = function(msg){     var id = "alertBox", alertBox, closeId = "alertClose", alertClose;     alertBox = document.createElement("div");     document.body.appendChild(alertBox);     alertBox.id = id;     alertBox.innerHTML = msg;     alertClose = document.createElement("div");     alertClose.id = closeId;     alertClose.innerHTML = "x";     alertBox.appendChild(alertClose);     alertBox.style.visibility = "visible";     alertClose.style.visibility = "visible";     alertClose.onclick = closeAlertBox; }; </script>');
+    x.appendChild(newAlert);
+    x.appendChild(newAlertScript);
+    document.head.appendChild(x);
+    return true;
 }
