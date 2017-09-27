@@ -13,7 +13,7 @@
 
 
 var autoload = true;
-
+var hasAlert = false;
 if (autoload == true) {
 	var auto = autoload();
 	if (auto == true) {
@@ -24,13 +24,13 @@ if (autoload == true) {
 } else {
 	console.log('Did not added custom ALERT');
 }
-var version = "1.0.2";
+var version = "1.0.3";
 var isAlpha = false
 	var sinceNoMoreAlpha = '25/09/2017';
 var isBeta = true
 var vNickName = "Amur Tiger";
 var errorCount = "26"; // (+ 1 not counting)
-var noticeCount = "5";
+var noticeCount = "6";
 var included = [
 	// NO CATEGORY
 	"isset",
@@ -935,9 +935,60 @@ function autoload() {
 function addMFalert() {
 	var x = document.createElement("DIV");
 	var newAlert = document.createTextNode("<style> #alertBox {     position: fixed;     top:100px;     visibility: hidden;     font-family: 'Ubuntu', sans-serif;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    text-align: center;    background-color: #4CAF50;     color: white;     padding: 10px;     font-size: 40px; } #alertClose {  font-size: 20px;     position: absolute;     right:0;     top: 0;     color: black;     width: 1em;     text-align: center;      cursor: pointer;     font-family: 'Roboto', sans-serif; } </style>");
-	var newAlertScript = document.createTextNode('<script> function closeAlertBox(){     alertBox = document.getElementById("alertBox");     alertClose = document.getElementById("alertClose");     alertBox.style.visibility = "hidden";     alertClose.style.visibility = "hidden"; } window.alert = function(msg){     var id = "alertBox", alertBox, closeId = "alertClose", alertClose;     alertBox = document.createElement("div");     document.body.appendChild(alertBox);     alertBox.id = id;     alertBox.innerHTML = msg;     alertClose = document.createElement("div");     alertClose.id = closeId;     alertClose.innerHTML = "x";     alertBox.appendChild(alertClose);     alertBox.style.visibility = "visible";     alertClose.style.visibility = "visible";     alertClose.onclick = closeAlertBox; }; </script>');
-    x.appendChild(newAlert);
-    x.appendChild(newAlertScript);
     document.head.appendChild(x);
+    hasAlert = true;
+    
+    
+    if (hasAlert == true) {
+    	window.alert = function(msg){
+    	    var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
+    	    alertBox = document.createElement("div");
+    	    document.body.appendChild(alertBox);
+    	    alertBox.id = id;
+    	    alertBox.innerHTML = msg;
+    	    alertClose = document.createElement("div");
+    	    alertClose.id = closeId;
+    	    alertClose.innerHTML = "x";
+    	    alertBox.appendChild(alertClose);
+    	    alertBox.style.visibility = "visible";
+    	    alertClose.style.visibility = "visible";
+    	    alertClose.onclick = closeAlertBox;
+    	};
+    	}
+    
+    
     return true;
+    
 }
+
+function closeAlertBox(){
+	if (hasAlert == true) {
+	    alertBox = document.getElementById("alertBox");
+	    alertClose = document.getElementById("alertClose");
+	    alertBox.style.visibility = "hidden";
+	    alertClose.style.visibility = "hidden";
+	} else {
+		throw 'MF: err.: 27: No permission, please first run addMFalert()';
+	}
+}
+
+
+if (hasAlert == true) {
+	window.alert = function(msg){
+	    var id = "alertBox", alertBox, closeId = "alertClose", alertClose;
+	    alertBox = document.createElement("div");
+	    document.body.appendChild(alertBox);
+	    alertBox.id = id;
+	    alertBox.innerHTML = msg;
+	    alertClose = document.createElement("div");
+	    alertClose.id = closeId;
+	    alertClose.innerHTML = "x";
+	    alertBox.appendChild(alertClose);
+	    alertBox.style.visibility = "visible";
+	    alertClose.style.visibility = "visible";
+	    alertClose.onclick = closeAlertBox;
+	} 
+	} else {
+		window.log('MF: NOTICE.: 6: No permission, please first run addMFalert()');
+	}
+
