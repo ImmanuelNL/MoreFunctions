@@ -24,9 +24,9 @@ if (autoload == true) {
 		throw 'MF: err.: (counter not set yet.. (But I assume 0)) SOMETHING WENT ALREADY WRONG';
 	};
 } else {
-	console.log('Did not added custom ALERT');
+	console.log('Did not add custom ALERT');
 };
-var version = "1.0.4";
+var version = "1.0.6";
 var isAlpha = false
 	var sinceNoMoreAlpha = '25/09/2017';
 var isBeta = true,
@@ -82,6 +82,17 @@ var included = [
 	"toFahrenheit"
 ];
 
+var MF = {
+	    version:"1.0.5",
+	    isAlpha:false,
+	    sinceNoMoreAlpha:'25/09/2017',
+	    isBeta:true,
+	    smallStandardMFstyles:false,
+	    vNickName:"Amur Tiger",
+	    errorCount:"26", // (+ 1 not counting)
+	    noticeCount:"6",
+	    included:included
+};
 
 
 /**
@@ -1061,7 +1072,6 @@ function getSmallMFstyles() {
     x.appendChild(tt);
     x.appendChild(newBodyStyle);
     document.head.appendChild(x);
-    smallStandardMFstyles = true;
+    MF.smallStandardMFstyles = true;
     return true;
 }
-
