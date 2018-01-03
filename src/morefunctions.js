@@ -154,7 +154,7 @@ function minmax(min, max) {
 	if (!isset(max)) {
 		throw 'MF: err 3: No maximum amount found';
 	};
-	Math.floor((Math.random() * max) + min);
+	return Math.floor((Math.random() * max) + min);
 };
 
 /**
